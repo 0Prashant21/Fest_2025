@@ -1,4 +1,4 @@
-# HacktoberFest_2024
+# HacktoberFest_2025
 
 This repository is dedicated to celebrating Hacktoberfest, an annual event encouraging open source contributions. Join us in October to make meaningful contributions to open source projects and earn cool swag! Check out the guidelines below to get started.
 

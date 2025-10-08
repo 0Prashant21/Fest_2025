@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Quote Generator</title>
+<style>
+  /* Bright mode with your colors */
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: rgb(112, 182, 182); /* bg-light */
+    color: oklch(0.15 0.08 261);   /* text */
+  }
+
+  #quote-box {
+    background: oklch(74.501% 0.09862 261.024); /* border / box background */
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.3);
+    border: 2px solid oklch(0.4 0.1 261); /* primary */
+  }
+
+  #quote {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    
+  }
+
+  button {
+    background: oklch(32.624% 0.06063 256.495); /* secondary */
+    color: oklch(78.577% 0.00009 271.152);  /* text */
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+</style>
+</head>
+<body>
+
+<div id="quote-box">
+  <p id="quote">Click the button to get a quote!</p>
+  <button id="new-quote">New Quote</button>
+</div>
+
+<script>
+  const quotes = [
+    "The best way to predict the future is to invent it.",
+    "Life is what happens when you're busy making other plans.",
+    "Do one thing every day that scares you.",
+    "Strive not to be a success, but rather to be of value.",
+    "Stay hungry, stay foolish."
+  ];
+
+  const quoteElement = document.getElementById('quote');
+  const button = document.getElementById('new-quote');
+
+  function randomIndexGenerator(){
+    return Math.floor(Math.random() * quotes.length);
+  }
+  let prevId=randomIndexGenerator();
+
+  button.addEventListener('click', () => {
+    let randomIndex = prevId;
+    while(prevId===randomIndex){
+        randomIndex=randomIndexGenerator()
+    }
+    prevId=randomIndex;
+    quoteElement.textContent = quotes[randomIndex];
+  });
+</script>
+
+</body>
+</html>

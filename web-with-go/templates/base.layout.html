@@ -1,0 +1,22 @@
+{{define "base"}}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        <title>Document</title>
+        {{block "css" .}}
+
+        {{end}}
+    </head>
+    <body>
+        {{block "content" .}}
+
+        {{end}}
+
+        {{block "js" .}}
+
+        {{end}}
+    </body>
+</html>
+{{end}}
